@@ -1,0 +1,30 @@
+POP UP QUESTIONS 
+
+Q1.What is the size of key space in the substitution cipher assuming 26 letters?
+
+a) ∣K∣ = 26
+
+b) ∣K∣=26!  (26 factorial)
+
+c) ∣K∣=2^26
+ 
+d) ∣K∣=26^2
+
+CORRECT ANSWER: b) ∣K∣=26!  (26 factorial)
+
+
+
+
+Q2.What is the most common letter in English text?
+
+
+a) "X"
+
+b) "L"
+
+c) "E"
+
+d) "H"
+
+CORRECT ANSWER: c) "E"
+
