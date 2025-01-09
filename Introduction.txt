@@ -1,0 +1,120 @@
+Introduction
+
+WHAT IS CRYPTOGRAPHY?
+-The core of cryptography of course is secure communication that essentially consists of two parts. The first is secured key establishment and then how do we communicate securely once we have a shared key.
+
+-'Here we are taking two individuals who are communication as Alice and Bob'.
+
+-Secure key establishment enables Alice and Bob to exchange messages and agree on a shared key, K, ensuring mutual authentication—Alice knows she's communicating with Bob, and vice versa—while preventing an eavesdropping attacker from discovering the key.
+
+-Once the key is established, encryption schemes allow them to communicate securely so that an attacker cannot decipher or tamper with the messages without detection.
+
+-Cryptography offers far more than secure key establishment and encryption. 
+
+-One example is "digital signatures", which are the digital equivalent of physical signatures. However, unlike physical signatures that remain the same across all documents, digital signatures must be unique for each document to prevent attackers from copying a signature from one document and applying it to another without consent.
+
+-Another important application of cryptography is "anonymous communication", where a user like Alice communicates with a chat server, Bob, without revealing her identity. This is useful for privacy-sensitive topics, such as discussing medical conditions. 
+
+-A standard technique for achieving anonymity is a "mixnet", which routes Alice’s messages through a series of proxies with encryption and decryption at each step. 
+
+-This ensures that neither Bob nor the proxies know who is communicating with whom. Remarkably, mixnets support "bi-directional communication", allowing Bob to respond to Alice without knowing her identity.
+
+-Cryptography is a rigorous science that follows a structured process when introducing new concepts or primitives, such as digital signatures. This process involves three key steps: 
+ 
+1. "Defining the threat model" — specifying what actions an attacker can take and their goals (e.g., forging a signature) to clearly define security requirements, like unforgeability.  
+
+2. "Proposing a construction" — presenting a specific method or design for implementing the primitive. 
+ 
+3. "Providing a proof of security" — demonstrating that if an attacker could break the construction under the defined threat model, they could solve an underlying hard problem, such as factoring integers.
+ 
+-This proof shows that the construction is secure as long as the underlying problem remains hard.  
+These steps ensure a robust and systematic approach to cryptographic design and analysis.
+
+
+
+**HISTORY OF CRYPTOGRAPHY**
+
+- Alice and Bob want to communicate securely while an attacker attempts to eavesdrop. To protect their conversation, they share a secret key, K, known only to them. 
+-They use a "cipher", consisting of an "encryption algorithm (E)" and a "decryption algorithm (D)". The encryption algorithm takes the message M and the key K as inputs and produces a ciphertext C, which represents the encrypted message. 
+-The ciphertext is sent to Bob over a communication channel (such as the internet or an encrypted file system). Upon receiving the ciphertext, Bob uses the decryption algorithm and the same key K to retrieve the original message M. This process ensures that the attacker, lacking knowledge of the key K, cannot decipher the message.
+
+-- SUBSTITUTION CIPHER
+- A "substitution cipher" is a simple encryption technique where each letter in the message is substituted according to a predefined substitution table, which serves as the key. For example, if the table maps 'A' to 'C', 'B' to 'W', and 'Z' to 'A', then to encrypt the message "BCZA", each letter is replaced one by one:  
+- 'B' becomes 'W',  
+- 'C' becomes 'N',  
+- 'Z' becomes 'A',  
+- 'A' becomes 'C'.  
+Thus, the ciphertext for "BCZA" is "WNAC". Decryption uses the same table in reverse to recover the original message.
+
+-In a substitution cipher, the key is a permutation of all 26 letters, with a key space of 26 factorial (26!), or about 88 bits. Despite the large key space, the cipher is insecure due to letter frequency patterns in natural language. 
+
+-For example, in English, "E" is the most frequent letter. By analyzing the ciphertext for letter frequencies and mapping them to common English letters, an attacker can easily break the cipher and recover the plaintext.
+
+--CAESAR CIPHER ALGORITHM
+-The "Caesar cipher" is one of the simplest and most well-known encryption techniques. It is a type of substitution cipher where each letter in the plaintext is shifted a fixed number of places down or up the alphabet. 
+-The key for the Caesar cipher is the number of positions each letter is shifted.
+
+Example
+Let’s assume a shift of 3 to the right as the key:
+
+Plaintext alphabet: A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
+Ciphertext alphabet: D E F G H I J K L M N O P Q R S T U V W X Y Z A B C
+To encrypt the message "HELLO" using a shift of 3:
+
+H becomes K
+E becomes H
+L becomes O (twice)
+O becomes R
+The ciphertext for "HELLO" is "KHOOR".
+
+-In the Caesar cipher, the key determines how far each letter in the plaintext is shifted along the alphabet to produce the ciphertext. 
+
+-The key in a Caesar cipher controls the shift that encrypts and decrypts the message, making it the fundamental element of the cipher.
+
+-The Caesar cipher is very easy to break because it only has 25 possible keys (shifts), making it vulnerable to brute-force attacks or frequency analysis.
+
+
+--VIGENERE CIPHER
+The Vigenère cipher uses a keyword (e.g., "CRYPTO") to encrypt a message. The key is repeated to cover the entire message. To encrypt, each letter of the message is shifted by the corresponding letter of the key, using modulo 26 arithmetic. 
+-For example, adding "Y" and "A" results in "Z", and "T" and "A" gives "U". Decryption is the reverse process, where the ciphertext is written under the key, and each letter is shifted back accordingly. The encryption and decryption processes are straightforward and rely on modular arithmetic.
+
+--ROTOR MACHINE
+Rotor machines, like the Hibber machine, use rotating discs to encode a substitution cipher. The key is captured by a rotating disc, which changes the substitution table after each key press. 
+-For example, pressing 'C' might initially output 'T', and after the disc rotates, the next press would result in a different substitution (e.g., 'S'). 
+-Each key press causes the disc to rotate and alter the mapping. While initially secure, these machines were eventually broken using letter frequency and statistical attacks. To counter these attacks, rotor machines evolved to become more complex over time.
+
+
+--ENIGMA MACHINE
+-The Enigma machine is a complex rotor cipher that uses three, four, or five rotating rotors. The secret key in the Enigma machine is determined by the initial setting of the rotors. 
+-For a machine with three rotors, there are 26^3 possible keys. As you type on the typewriter, the rotors rotate at different rates to produce the ciphertext.
+-For a four-rotor Enigma machine, the number of possible keys is 26^4, or 2^18, which is still a relatively small keyspace.
+
+
+
+--DES
+-In 1974, IBM developed a cipher called the Data Encryption Standard (DES), which became a federal standard for data encryption. The key space for DES is 2^56, which was large enough at the time but is now considered small. 
+-Unlike rotor machines that encrypt one character at a time, DES encrypts 64 bits (eight characters) at a time. Due to its small key space, DES can now be broken through brute-force attacks, so it is considered insecure and should no longer be used in modern projects.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
