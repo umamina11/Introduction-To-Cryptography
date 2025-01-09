@@ -1,0 +1,21 @@
+Course Overview
+-Cryptography is an indispensable tool for protecting information in computer systems.
+-This course explains how cryptographic primitives work and how to use them correctly.
+-A detailed discussion of how two parties who have a shared secret key can communicate securely when a powerful adversary eavesdrops and tampers with traffic.
+-Public-key techniques that let two parties generate a shared secret key. We will cover the relevant number theory and discuss public-key encryption and basic key exchange. 
+-Cryptography is used everywhere computers are. It's a very common tool that's used to protect data. 
+-For example, web traffic is protected using a protocol called HTTPS. Wireless traffic, for example, Wi-Fi traffic is protected using the, WPA2 protocol, that's part of 801.11i. Cell phone traffic is protected using an encryption mechanism in GSM.
+-Cryptography is used everywhere computers are. It's a very common tool that's used to protect data. For example, web traffic is protected using a protocol called HTTPS. 
+-Wireless traffic, for example, Wi-Fi traffic is protected using the, WPA2 protocol, that's part of 801.11i. Cell phone traffic is protected using an encryption mechanism in GSM.
+-The protocol that's used to do that is called HTTPS, but in fact, the actual protocol is called SSL. Sometimes it's called TLS. 
+-And the goals of these protocols is to basically make sure that as this data travels across the network, an attacker first of all can't eavesdrop on this data. 
+-Second of all, an attacker can't modify the data while it's in the network. 
+-So no eavesdropping and no tampering.
+-The protocol that's used to secure web traffic called TLS actually consists of two parts. The first part is called the handshake protocol. 
+-This one is basically when two users talk to one another and share one secret key that is secret between them only.
+-The building block for securing traffic is what's called symmetric encryption systems.It's basically, the two parties, Alice and Bob, share a secret key k, which the attacker does not know. Only they know the secret key k.
+-Now, they're gonna use a cipher which consists of these two algorithms, E and D. E is called an encryption algorithm and D is called the decryption algorithm. The encryption algorithm takes the message and the key as inputs, and produces a corresponding ciphertext. And the decryption algorithm does the opposite. It takes the ciphertext as input along with the key key and produces the corresponding message. 
+-"The algorithms E and D, the actual encryption algorithms are publicly known. Adversary knows exactly how they work. The only thing that's kept secret is the secret key k. Other than that everything else is completely public and it's really important to realize that you should only use algorithms that are public because those algorithms have been peer-reviewed by a very large community of hundreds of people for many, many, many years, and these algorithms only begin to be used once this community has shown that they cannot be broken, essentially" . 
+-Cryptography is a powerful tool for protecting information in computer systems but has significant limitations. It cannot solve all security problems, such as those caused by software bugs or social engineering attacks. 
+-Also, cryptography becomes ineffective if implemented incorrectly, as demonstrated by flawed systems like the WEP protocol for Wi-Fi encryption. 
+-Another key point is that cryptography should rely on established standards and primitives that have been rigorously reviewed, rather than ad hoc designs, which are often quickly broken when scrutinized.
