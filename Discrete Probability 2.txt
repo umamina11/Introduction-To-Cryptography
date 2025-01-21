@@ -1,0 +1,46 @@
+DISCRETE PROBABILITY
+
+- Discrete probability is defined over a finite set, denoted as U, typically representing all N-bit binary strings (0 to 2^N). 
+
+- A probability distribution P over U is a function assigning a weight to each element, where weights are in the range [0, 1], and the total sum of all weights equals 1. 
+
+- A subset of U is called an event, and the probability of an event is the sum of the weights of its elements, yielding a value between 0 and 1. Finally, the probability of the entire universe is always 1, reflecting the sum of all weights.
+
+- This segment introduces random variables and independence in discrete probability. A random variable is a function from a universe to a set V and defines a probability distribution on V. Independence between two events A and B means that knowing A happens gives no information about whether B happens. 
+
+- Formally, events A and B are independent if P(A and B) = P(A) * P(B), illustrating that probabilities multiply under conjunction. The concept of independence also applies to random variables. 
+
+- Two random variables X and Y are independent if P(X = a and Y = b) = P(X = a) * P(Y = b) for all values a and b, meaning knowing one variable’s value provides no information about the other. 
+
+- An example is given with two-bit strings {00, 01, 10, 11}, where a random choice from this set represents flipping a fair coin twice. 
+
+- The least significant bit is X, and the most significant bit is Y. Since each outcome is equally likely, the variables X and Y are independent.
+
+- This segment further explains the independence of random variables using the two-bit string example. If you know the result of the first coin flip (the least significant bit, X), it tells you nothing about the result of the second flip (the most significant bit, Y). 
+
+- This intuitive understanding aligns with the formal definition of independence, which requires proving that for all pairs of values (0, 0), (1, 1), etc., the probabilities multiply. 
+
+- For example, the probability that X = 0 and Y = 0 corresponds to the probability that the random bit string is "00." Since the set is uniformly distributed, this probability is 1/4 (one over the total number of outcomes). 
+
+- Similarly, the individual probabilities for X = 0 and Y = 0 each equal 1/2, and multiplying them gives 1/4, confirming independence. This reasoning applies to all pairs, demonstrating that X and Y are independent random variables.
+
+- This segment explains key concepts in cryptography, focusing on independence of random variables, the XOR operation, and the birthday paradox. Here's a concise summary:  
+
+1. Independence of Random Variables:  
+   - If you know the least significant bit (LSB) of a binary random variable \( R \), it tells you nothing about the next bit, demonstrating independence.  
+   - The example shows that probabilities for independent events (like \( X = 0 \) and \( Y = 0 \)) multiply, confirming the concept.  
+
+2. XOR Operation (Exclusive OR):  
+   - XOR adds bits modulo 2. The truth table shows:  
+     - 0 ⊕ 0 = 0, 1 ⊕ 1 = 0, 0 ⊕ 1 = 1, 1 ⊕ 0 = 1.  
+   - Bitwise XOR of strings applies this operation to corresponding bits.  
+   - In cryptography, XOR is important because:  
+     - If you XOR any variable \( Y \) (with arbitrary distribution) with an independent, uniformly distributed \( X \), the result \( Z = X ⊕ Y \) is always uniformly random.  
+   - This property ensures uniformity, enhancing encryption. A step-by-step proof for \( n = 1 \) verifies this result.
+
+3. Birthday Paradox:  
+   - If you randomly select about the square root of a set's size, there’s a high chance of finding duplicates.  
+   - Example: For 365 days, only 24 people are needed for a 50% chance that two share the same birthday, which feels counterintuitive.  
+   - The paradox applies broadly, including large sets (like 128-bit strings), where selecting roughly \( 2^{64} \) samples yields duplicates with high probability.  
+   - The convergence to certainty (100%) happens quickly once sampling exceeds the square root of the set size.  
+
