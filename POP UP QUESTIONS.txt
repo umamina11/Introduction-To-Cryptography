@@ -28,3 +28,8 @@ d) "H"
 
 CORRECT ANSWER: c) "E"
 
+
+Q3. What is the probability of event A? ( i.e., the probability that the two least significant bits of a random byte are equal to 11)
+
+Answer: 1/4
+
