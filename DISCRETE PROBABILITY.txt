@@ -1,0 +1,66 @@
+DISCRETE PROBABILITY 
+
+Crash Course:
+
+INTRODUCTION:
+
+-Modern cryptography emphasizes rigorous security proofs using discrete probability. Discrete probability operates over a finite universe, often the set of all n-bit strings, denoted as {0,1}ⁿ. 
+
+-For example, {0,1}² represents the set {00, 01, 10, 11}, containing four elements, while {0,1}ⁿ contains 2ⁿ elements. A probability distribution over this universe is a function, P, that assigns a probability (a number between 0 and 1) to each element. 
+
+-The key requirement is that the total sum of these probabilities equals one. This framework underpins the mathematical language used to describe security in cryptography.
+
+-In a probability distribution, the sum of probabilities for all elements in the universe must equal one.
+
+-For example, in a 2-bit universe {00, 01, 10, 11}, a distribution might assign probabilities as follows: 00 has 1/2, 01 has 1/8, 10 has 1/4, and 11 has 1/8. These add up to one, making it a valid distribution. When sampling, each element occurs according to its assigned probability.  
+
+-A uniform distribution assigns equal weight to all elements in the universe. If the universe has |U| elements, the probability for each element is 1/|U|. 
+
+-In a 2-bit universe, the uniform distribution assigns a probability of 1/4 to each element, ensuring the total sum of probabilities is one.
+
+-In a uniform distribution, all elements in the universe are equally likely to be sampled, with equal probabilities summing to one. In contrast, a point distribution concentrates all probability on a single element \( X_0 \), assigning it a probability of 1 and 0 to all other elements. 
+
+-This guarantees that sampling from this distribution always returns \( X_0 \).  
+
+-Since our universe \( U \) is finite, we can represent any probability distribution as a vector listing the probabilities assigned to each element in \( U \). 
+
+-For example, in a 3-bit universe, we can write the probabilities for each string (000, 001, etc.) as entries in a vector, fully describing the distribution.
+
+-This detailed exploration of fundamental concepts in probability theory, random variables, and randomized algorithms provides a structured basis for understanding how randomness is used in computational contexts. Here’s a structured summary and key points for clarity:  
+
+
+1. Vectors Representing Distributions  
+   - A vector can capture the entire probability distribution, where each element represents a real number between 0 and 1 corresponding to the probability of a particular outcome.  
+   - Example: A vector of dimension 8 for a set of all possible 3-bit binary strings.
+
+2. Events and Their Probabilities 
+   - An event is a subset \( A \) of the universe \( U \).  
+   - The probability of event \( A \) is the sum of the weights of elements in \( A \).  
+   - The total sum of all weights across \( U \) is always 1.  
+   - Example: In a set of 256 8-bit strings, choosing bytes where the two least significant bits are "11" has a probability of \( \frac{1}{4} \), since 64 out of 256 strings satisfy this condition.
+
+3. Union Bound  
+   - The union bound gives an upper limit on the probability of the union of two events:  
+     \[
+     P(A_1 \cup A_2) \leq P(A_1) + P(A_2)
+     \]  
+   - If the events are disjoint, equality holds.  
+   - Example: If \( A_1 \) is all strings ending in "11" and \( A_2 \) is all strings starting with "11", the probability of either event is less than or equal to \( \frac{1}{2} \).
+
+4. Random Variables  
+   - A random variable maps elements from a universe \( U \) to a set \( V \).  
+   - Example: A random variable \( X \) outputs the least significant bit of an n-bit string.  
+   - Uniform distributions over \( 0 \) or \( 1 \) yield probabilities of \( \frac{1}{2} \) each.
+
+5. Uniform Random Variable 
+   - A uniform random variable over a set \( U \) has equal probability for each element:  
+     \[
+     P(R = a) = \frac{1}{|U|}
+     \]  
+   - Example: Over 2-bit strings, the probability of a sum of bits equaling 2 is \( \frac{1}{4} \) because only the string "11" satisfies this condition.
+
+6. Randomized Algorithms  
+   - A deterministic algorithm produces the same output for the same input.  
+   - A randomized algorithm uses a random input \( R \) in addition to a standard input \( M \), leading to potentially different outputs on each run.  
+   - \( R \) is uniformly sampled from n-bit strings each time the algorithm runs.
+
