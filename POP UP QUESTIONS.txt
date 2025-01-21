@@ -33,3 +33,14 @@ Q3. What is the probability of event A? ( i.e., the probability that the two lea
 
 Answer: 1/4
 
+
+Q4. What is the probability that x=2?
+	hint: Pr[x=2]=Pr[r=11]
+
+Answer: 1/4
+
+
+Q5. What is 0110111  +
+	    1011010     ?
+
+Answer: 1101101
