@@ -1,0 +1,36 @@
+Information Theoretic Security And The One Time Pad
+
+- A cipher consists of two algorithms: an encryption algorithm (E) and a decryption algorithm (D), and operates within a defined environment, represented as a triple:
+
+1. Key space (K): The set of all possible keys.
+2. Message space: The set of all possible messages.
+3. Ciphertext space: The set of all possible ciphertexts.
+
+- The encryption algorithm (E) takes a key and a message as inputs and outputs ciphertext. 
+
+- The decryption algorithm (D) takes a key and ciphertext as inputs and outputs the original message. 
+
+- The algorithms must satisfy the correctness property, ensuring that encrypting a message with a key and then decrypting it with the same key returns the original message.
+
+- Efficiency is a key requirement for the algorithms, though its definition varies. In theoretical contexts, it means the algorithms run in polynomial time relative to input size. 
+
+- Practically, it means they perform within acceptable time limits, such as encrypting a gigabyte of data in under a minute.
+
+Two key points about ciphers and introduces the one-time pad cipher:
+
+1. Efficiency in encryption algorithms (E): 
+   - The term "efficient" is flexible and depends on context. For theory, it means the algorithm runs in polynomial time relative to input size. For practical use, it refers to meeting specific time constraints.
+  
+   - Algorithm E (encryption) is often randomized, meaning it uses random bits during encryption to enhance security.  
+   - Algorithm D (decryption) is deterministic, always producing the same output (original message) for a given key and ciphertext.
+
+2. Introduction to the one-time pad cipher:
+   - The one-time pad was designed by Vernam in the early 20th century and is an example of a secure cipher. 
+ 
+   - Message space and ciphertext space: Both consist of all possible binary strings (sequences of 0s and 1s).  
+
+   - Key space: Keys are random binary strings as long as the messages they encrypt. 
+ 
+   - Encryption in the one-time pad is straightforward: it combines the message and key using a simple operation.
+
+
