@@ -25,12 +25,60 @@ Two key points about ciphers and introduces the one-time pad cipher:
    - Algorithm D (decryption) is deterministic, always producing the same output (original message) for a given key and ciphertext.
 
 2. Introduction to the one-time pad cipher:
-   - The one-time pad was designed by Vernam in the early 20th century and is an example of a secure cipher. 
+   - The one-time pad was designed by Vernam in the early 20th century and is an example of a secure cipher.
+
+- The key space is basically the same as the message space which is again simply the embed of all binary strings. So a key in the one time pad is simply a random big string, it's a random sequence of bits. That's as long as the message to be encrypted, as long as the message. 
  
    - Message space and ciphertext space: Both consist of all possible binary strings (sequences of 0s and 1s).  
 
    - Key space: Keys are random binary strings as long as the messages they encrypt. 
  
    - Encryption in the one-time pad is straightforward: it combines the message and key using a simple operation.
+
+
+
+The workings of the one-time pad cipher:
+
+1. Encryption process:
+   - The ciphertext is calculated as the **XOR** of the key (K) and the message (M):  
+     Ciphertext = K XOR M  
+   - Example:  
+     - Message: `0110111`  
+     - Key: `1011001`  
+     - Ciphertext: `1101110` (result of bitwise XOR)
+
+2. Decryption process: 
+   - The original message is retrieved by XORing the key with the ciphertext:  
+     M = K XOR Ciphertext 
+   - Example verification:  
+     - Ciphertext: `K XOR M`  
+     - Decrypting: `K XOR (K XOR M)` simplifies to `M`, because:  
+       - `K XOR K = 0`  
+       - `0 XOR M = M`  
+
+3. Consistency property:  
+   - The process ensures that decrypting a ciphertext using the same key returns the original message, satisfying the correctness requirement for ciphers.
+
+4. Security of the one-time pad:  
+   - While it’s demonstrated that the one-time pad functions as a valid cipher, its security properties have not yet been discussed.  
+
+Key Recovery from Message and Ciphertext:
+
+- If given both the message (M) and the ciphertext (C), it is straightforward to recover the key (K):
+K = M XOR C
+
+- This property is due to the reversibility of the XOR operation.
+Performance Advantage:
+
+- The one-time pad is computationally efficient, requiring only a simple XOR operation for encryption and decryption, making it very fast for long messages.
+Practical Limitation - Key Management:
+
+- The key must be as long as the message, which creates significant challenges:
+For Alice to securely communicate with Bob, she needs to securely transmit a key of the same length as the message beforehand.
+
+- This defeats the purpose of using the cipher since the secure transmission of such a long key could be as difficult as securely transmitting the message itself.
+Conclusion and Future Application:
+
+- While the one-time pad is impractical for real-world use, its underlying principle inspires other cryptographic techniques. Further discussion on these adaptations will follow later.
 
 
